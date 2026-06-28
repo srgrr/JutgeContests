@@ -6,6 +6,30 @@ using namespace std;
 #define ODD(u) (u)
 #define EVEN(u) (n + u)
 
+/*
+Aquest problem es pot traduir en
+"podem arribar al desti sense que el tio que es mou random pugui ser a cap dels nodes que trii
+per arribar-hi?"
+
+Hi ha varies observacions aqui:
+El random player es mou tot el temps, no es pot quedar quiet.
+Si el graf es bipartit, la resposta sempre sera yes perque esperant pots assegurar que mai
+coincidiras amb ell, si us canvieu les paritats mai sereu al mateix node, es impossible.
+
+Si el graf no es bipartit vol dir que existeix algun cicle imparell que ens permet
+visitar tots els nodes a ambdues paritats.
+
+El que queda saber es si el random player pot arribar-hi abans al node desti que nosaltres.
+
+Nosaltres podem arribar de dues formes: anant directes o esperant-nos un torn per canviar la paritat.
+
+Com les paritats son importants, un truc que es pot fer es desdoblar el graf de tal forma que
+un node u passa a tenir u0 i u1
+Una aresta u - v passa a ser
+u0 - v1
+u1 - v0
+*/
+
 vector< int > dis(vector< vector< int > >& g, vector< int > sources) {
     int n = g.size();
     queue< int > q;
